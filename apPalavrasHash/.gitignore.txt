@@ -1,0 +1,48 @@
+# Build results
+bin/
+obj/
+out/
+Debug/
+Release/
+
+# Visual Studio cache
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider IDE
+.idea/
+
+# Arquivos temporários
+*.tmp
+*.log
+*.bak
+*.ncb
+*.cache
+*.pdb
+
+# Configurações locais
+*.userprefs
+*.local
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Pacotes NuGet
+*.nupkg
+packages/
+
+# Testes de cobertura
+*.coverage
+*.coveragexml
+TestResult.xml
+TestResults/
+
+# Outras pastas geradas automaticamente
+Generated_Code/
+
