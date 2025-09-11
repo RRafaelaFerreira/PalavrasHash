@@ -9,18 +9,14 @@ public class SondagemLinear<T> where T : IRegistro<T>, new()
 {
     T[] tabelaDeHash;
     private int tamanho;
-    int qntsElementos;
+    int qntsElementos = 0;
 
     public SondagemLinear(int tamanho)
     {
         this.tamanho = tamanho;
         tabelaDeHash = new T[tamanho];
-        this.qntsElementos = qntsElementos;
 
-        for (int i = 0; i < tamanho; i++)
-        {
-            tabelaDeHash = new T[tamanho];
-        }
+        tabelaDeHash = new T[tamanho];
     }
 
     private int Hash(string chave)
@@ -53,7 +49,7 @@ public class SondagemLinear<T> where T : IRegistro<T>, new()
             }
         }
         tabelaDeHash = tabelaDeRehash;
-        tamanho = tamanhoReHash;
+        tamanho = tamanhoRehash;
     }
 
     public void Inserir(T novoDado){
@@ -108,8 +104,7 @@ public class SondagemLinear<T> where T : IRegistro<T>, new()
     {
         for (int i = 0; i < tamanho; i++)
         {
-            if (tabelaDeHash[i] != null && tabelaDeHash[i].Equals(default(T)))
-                Console.WriteLine($"{i}: |{tabelaDeHash[i]}");
+            Console.WriteLine($"{i}: |{tabelaDeHash[i]}");
         }
     }
 
