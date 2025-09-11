@@ -9,11 +9,13 @@ public class SondagemLinear<T> where T : IRegistro<T>, new()
 {
     T[] tabelaDeHash;
     private int tamanho;
+    int qntsElementos;
 
     public SondagemLinear(int tamanho)
     {
         this.tamanho = tamanho;
         tabelaDeHash = new T[tamanho];
+        this.qntsElementos = qntsElementos;
 
         for (int i = 0; i < tamanho; i++)
         {
@@ -36,18 +38,45 @@ public class SondagemLinear<T> where T : IRegistro<T>, new()
         return (int)tot;
     }
 
+    public void Rehash(){
+        int tamanhoRehash = 2017;
+        T[] tabelaDeRehash = new T[tamanhoRehash];
+
+        foreach (T dado in tabelaDeHash){
+            if (dado != null){
+                int indice = (Hash(dado.Chave) % tamanhoRehash);
+
+                while (tabelaDeRehash[indice] != null){
+                    indice = ((indice + 1) % tamanhoRehash);
+                }
+                tabelaDeRehash[indice] = dado;
+            }
+        }
+        tabelaDeHash = tabelaDeRehash;
+        tamanho = tamanhoReHash;
+    }
+
     public void Inserir(T novoDado){
+        //adicionando o rehash
+        double tabelaCheia = (double)qntsElementos / tamanho;
+        if (tabelaCheia > 0.7)
+            Rehash();
+        
         int indice = Hash(novoDado.Chave);
 
-        for (int i = 0; i < tamanho; i++){
+        for (int i = 0; i < tamanho; i++)
+        {
             int pos = (indice + i) % tamanho;
 
-            if (tabelaDeHash[pos] == null){
+            if (tabelaDeHash[pos] == null)
+            {
                 tabelaDeHash[pos] = novoDado;
+                qntsElementos = qntsElementos + 1;
                 return;
             }
         }
 
+        
         throw new Exception("Tabela cheia!");
     }
 
@@ -69,6 +98,7 @@ public class SondagemLinear<T> where T : IRegistro<T>, new()
         if (Existe(dado, out ondeAchou))
         {
             tabelaDeHash[ondeAchou] = default(T);
+            qntsElementos = qntsElementos - 1;
             return true;
         }
         return false;
