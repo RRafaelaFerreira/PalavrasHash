@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 public class HashSimples<T> where T : IRegistro<T>, new()
 {
-    const int tamanhoPadrao = 10007;
+    const int tamanhoPadrao = 1007;
     T[] tabelaDeHash;
-
-    //public HashSimples() : this.(tamanhoPadrao){}
+    int qntsElementos;
 
     public HashSimples(int tamanhoDesejado) {
         tabelaDeHash = new T[tamanhoDesejado];
@@ -27,12 +26,33 @@ public class HashSimples<T> where T : IRegistro<T>, new()
         return (int)tot;
     }
 
+    public void Rehash(){
+        int tamanhoRehash = 2017;
+        T[] tabelaDeRehash = new T[tamanhoRehash];
+
+        foreach (T dado in tabelaDeHash){
+            if (dado != null){
+                int indice = (Hash(dado.Chave) % tamanhoRehash);
+
+                while (tabelaDeRehash[indice] != null){
+                    indice = ((indice + 1) % tamanhoRehash);
+                }
+                tabelaDeRehash[indice] = dado;
+            }
+        }
+        tabelaDeHash = tabelaDeRehash;
+        tamanhoPadrao = tamanhoRehash;
+    }
+
     public string Incluir(T novoDado) {
-        string saida = " ";
+        saida = " ";
+        double tabelaCheia = (double)qntsElementos / tamanhoPadrao;
+        if (tabelaCheia > 0.7)
+            Rehash();
         int valorDeHash = Hash(novoDado.Chave);
-        if (tabelaDeHash[valorDeHash] != null) {
-            saida = $"colisao na posicao{valorDeHash}entre " +$"{ tabelaDeHash[valorDeHash]} e { novoDado.Chave}";
+        if (tabelaDeHash[valorDeHash] == null) {
             tabelaDeHash[valorDeHash] = novoDado;
+            qntsElementos = qntsElementos + 1;
         }
         return saida;
     }
@@ -62,6 +82,7 @@ public class HashSimples<T> where T : IRegistro<T>, new()
         int ondeAchou;
         if (Existe(dado, out ondeAchou)) {
             tabelaDeHash[ondeAchou] = default(T);
+            qntsElementos--;
             return true;
         }
         return false;
