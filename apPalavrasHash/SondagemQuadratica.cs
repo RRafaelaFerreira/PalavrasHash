@@ -22,7 +22,7 @@ public class SondagemQuadratica<T> where T : IRegistro<T>, new()
     }
 
     private int Hash(string chave)
-    {//peguei do HashAprimorado da apostila
+    {//peguei do HashAprimorado da apostila!
         long tot = 0;
         for (int i = 0; i < chave.Length; i++)
         {
