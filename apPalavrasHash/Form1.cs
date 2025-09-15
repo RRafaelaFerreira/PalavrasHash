@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -88,17 +89,39 @@ namespace apPalavrasHash
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            var palavra = txtPalavra.Text.Trim();
-            var dica = txtDica.Text.Trim();
-            var nova = new Palavra(palavra, dica);
+            var conteudo = new List<string>();
+            if (hashAtual is HashDuplo<Palavra> duplo)
+                conteudo.AddRange(duplo.Conteudo());
+            else if (hashAtual is HashSimples<Palavra> simples)
+                conteudo.AddRange(simples.Conteudo());
+            else if (hashAtual is SondagemLinear<Palavra> linear)
+                conteudo.AddRange(linear.Listar());
+            else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
+                conteudo.AddRange(quadratica.Listar());
 
-            btnExcluir_Click(sender, e); // remove versão antiga
-            btnIncluir_Click(sender, e); // insere a versão nova
+            File.WriteAllLines("palavras.txt", conteudo);
+            MessageBox.Show("Arquivo salvo com sucesso!");
         }
 
 
         private void btnListar_Click(object sender, EventArgs e)
         {
+            string[] linhas = File.ReadAllLines("palavras.txt");
+            foreach (string linha in linhas) {
+                var partes = linha.Split(';');
+                if (partes.Length == 2) {
+                    var nova = new Palavra(partes[0].Trim(), partes[1].Trim());
+
+                    if (hashAtual is SondagemLinear<Palavra> linear)
+                        linear.Inserir(nova);
+                    else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
+                        quadratica.Inserir(nova);
+                    else if (hashAtual is HashDuplo<Palavra> duplo)
+                        duplo.Incluir(nova);
+                    else if (hashAtual is HashSimples<Palavra> simples)
+                        simples.Incluir(nova);
+                }
+            }
             ListarConteudo();
         }
 
