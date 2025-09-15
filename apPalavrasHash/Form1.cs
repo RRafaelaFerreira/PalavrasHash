@@ -37,10 +37,13 @@ namespace apPalavrasHash
 
                 if (hashAtual is SondagemLinear<Palavra> linear)
                     linear.Inserir(palavra);
+            
                 else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
                     quadratica.Inserir(palavra);
+                
                 else if (hashAtual is HashDuplo<Palavra> duplo)
                     duplo.Incluir(palavra);
+                
                 else if (hashAtual is HashSimples<Palavra> simples)
                     simples.Incluir(palavra);
             }
@@ -48,7 +51,8 @@ namespace apPalavrasHash
         private void rbtnBucketHash_CheckedChanged(object sender, EventArgs e)
         {
             if (rbtnBucketHash.Checked)
-                hashAtual = new ListaSimples<Palavra>(); // ou BucketHash se tiver
+                hashAtual = new ListaSimples<Palavra>(); 
+
         }
 
         private void rbtnSondagemLinear_CheckedChanged(object sender, EventArgs e)
@@ -84,10 +88,13 @@ namespace apPalavrasHash
 
             if (hashAtual is SondagemLinear<Palavra> linear)
                 linear.Inserir(nova);
+            
             else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
                 quadratica.Inserir(nova);
+            
             else if (hashAtual is HashDuplo<Palavra> duplo)
                 duplo.Incluir(nova);
+            
             else if (hashAtual is HashSimples<Palavra> simples)
                 simples.Incluir(nova);
 
@@ -119,10 +126,13 @@ namespace apPalavrasHash
             var conteudo = new List<string>();
             if (hashAtual is HashDuplo<Palavra> duplo)
                 conteudo.AddRange(duplo.Conteudo());
+            
             else if (hashAtual is HashSimples<Palavra> simples)
                 conteudo.AddRange(simples.Conteudo());
+            
             else if (hashAtual is SondagemLinear<Palavra> linear)
                 conteudo.AddRange(linear.Listar());
+            
             else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
                 conteudo.AddRange(quadratica.Listar());
 
@@ -147,10 +157,13 @@ namespace apPalavrasHash
 
                 if (hashAtual is SondagemLinear<Palavra> linear)
                     linear.Inserir(nova);
+            
                 else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
                     quadratica.Inserir(nova);
+                
                 else if (hashAtual is HashDuplo<Palavra> duplo)
                     duplo.Incluir(nova);
+                
                 else if (hashAtual is HashSimples<Palavra> simples)
                     simples.Incluir(nova);
             }
@@ -180,6 +193,27 @@ namespace apPalavrasHash
                     lsbListagem.Items.Add(item);
         }
 
+        private void SalvarHash(){
+            if (hashAtual == null)
+                return;
+
+            var conteudo = new List<string>();
+
+            if (hashAtual is SondagemLinear<Palavra> linear)
+                conteudo.AddRange(linear.Listar());
+
+            else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
+                conteudo.AddRange(quadratica.Listar());
+            
+            else if (hashAtual is HashDuplo<Palavra> duplo)
+                conteudo.AddRange(duplo.Conteudo());
+            
+            else if (hashAtual is HashSimples<Palavra> simples)
+                conteudo.AddRange(simples.Conteudo());
+
+            File.WriteAllLines(arquivo, conteudo);
+
+        }
 
         private void txtPalavra_TextChanged(object sender, EventArgs e)
         {
@@ -189,6 +223,12 @@ namespace apPalavrasHash
         private void txtDica_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            SalvarHash();
+            base.OnFormClosing(e);
         }
     }
 }

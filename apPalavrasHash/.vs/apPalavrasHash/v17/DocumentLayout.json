@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|c:\\users\\u23015\\documents\\chico\\palavrashash\\appalavrashash\\buckethash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\buckethash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|solutionrelative:buckethash.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|c:\\users\\u23015\\documents\\chico\\palavrashash\\appalavrashash\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\listasimples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|solutionrelative:listasimples.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|c:\\users\\u23015\\documents\\chico\\palavrashash\\appalavrashash\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{418E8697-D4A9-423C-9982-2BE94E252B52}|apPalavrasHash.csproj|C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\palavra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
@@ -79,13 +79,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAkwKsAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAYwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T09:31:18.309Z",
               "EditorCaption": ""
@@ -128,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
@@ -140,7 +140,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ListaSimples.cs",
               "DocumentMoniker": "C:\\Users\\u23015\\Documents\\chico\\PalavrasHash\\apPalavrasHash\\ListaSimples.cs",
               "RelativeDocumentMoniker": "ListaSimples.cs",
@@ -148,8 +148,7 @@
               "RelativeToolTip": "ListaSimples.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAcwF8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T09:29:20.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T09:29:20.629Z"
             },
             {
               "$type": "Document",
@@ -161,8 +160,7 @@
               "RelativeToolTip": "Palavra.cs",
               "ViewState": "AgIAAB0AAAAAAAAAAAAuwD4AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T09:29:17.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T09:29:17.285Z"
             },
             {
               "$type": "Document",
@@ -198,8 +196,7 @@
               "RelativeToolTip": "SondagemQuadratica.cs",
               "ViewState": "AgIAADUAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T09:29:13.54Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T09:29:13.54Z"
             },
             {
               "$type": "Document",

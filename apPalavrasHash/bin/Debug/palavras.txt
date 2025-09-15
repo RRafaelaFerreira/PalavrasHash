@@ -1,4 +1,4 @@
-    5 : Iphone - Celular que não dura a bateria
-   67 : JS - Abreviação de Javascript
-   76 : intel - marca de processadores famosa
-   92 : Potavel - Que todo mundo pode beber
+   70 : 92 : Potavel - Que todo mun - do pode beber
+   75 : 67 : JS - Abreviação de Jav - ascript
+   83 : 76 : intel - marca de proce - ssadores famosa
+   93 : 5 : Iphone - Celular que n - ão dura a bateria
