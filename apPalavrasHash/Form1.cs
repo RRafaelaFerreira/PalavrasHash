@@ -14,13 +14,37 @@ namespace apPalavrasHash
     public partial class Form1 : Form
     {
         private object hashAtual;  
-        private const int TAMANHO_INICIAL = 101; 
+        private const int TAMANHO_INICIAL = 101;
+        const string arquivo = "palavras.txt";//aparentemente é assim
 
         public Form1()
         {
             InitializeComponent();
+
+            LerArquivo();
         }
 
+        private void LerArquivo(){
+            if (!File.Exists(arquivo))
+                return;
+
+            string[] linhas = File.ReadAllLines(arquivo);
+
+            foreach (string linha in linhas)
+            {
+                var palavra = new Palavra();
+                palavra.LerDeLinha(linha);
+
+                if (hashAtual is SondagemLinear<Palavra> linear)
+                    linear.Inserir(palavra);
+                else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
+                    quadratica.Inserir(palavra);
+                else if (hashAtual is HashDuplo<Palavra> duplo)
+                    duplo.Incluir(palavra);
+                else if (hashAtual is HashSimples<Palavra> simples)
+                    simples.Incluir(palavra);
+            }
+        }
         private void rbtnBucketHash_CheckedChanged(object sender, EventArgs e)
         {
             if (rbtnBucketHash.Checked)
@@ -47,6 +71,9 @@ namespace apPalavrasHash
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtPalavra.Text)) {
+                MessageBox.Show("Digite a Palavra antes de incluir!");
+            }
             if (hashAtual == null)
             {
                 MessageBox.Show("Selecione uma técnica de hashing primeiro.");
@@ -106,37 +133,53 @@ namespace apPalavrasHash
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            string[] linhas = File.ReadAllLines("palavras.txt");
-            foreach (string linha in linhas) {
-                var partes = linha.Split(';');
-                if (partes.Length == 2) {
-                    var nova = new Palavra(partes[0].Trim(), partes[1].Trim());
-
-                    if (hashAtual is SondagemLinear<Palavra> linear)
-                        linear.Inserir(nova);
-                    else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
-                        quadratica.Inserir(nova);
-                    else if (hashAtual is HashDuplo<Palavra> duplo)
-                        duplo.Incluir(nova);
-                    else if (hashAtual is HashSimples<Palavra> simples)
-                        simples.Incluir(nova);
-                }
+            if (!File.Exists(arquivo))
+            {
+                MessageBox.Show("Arquivo não encontrado.");
+                return;
             }
+
+            string[] linhas = File.ReadAllLines(arquivo);
+            foreach (string linha in linhas)
+            {
+                var nova = new Palavra();
+                nova.LerDeLinha(linha);
+
+                if (hashAtual is SondagemLinear<Palavra> linear)
+                    linear.Inserir(nova);
+                else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
+                    quadratica.Inserir(nova);
+                else if (hashAtual is HashDuplo<Palavra> duplo)
+                    duplo.Incluir(nova);
+                else if (hashAtual is HashSimples<Palavra> simples)
+                    simples.Incluir(nova);
+            }
+
             ListarConteudo();
         }
+
 
         private void ListarConteudo()
         {
             lsbListagem.Items.Clear();
 
             if (hashAtual is SondagemLinear<Palavra> linear)
-                for (int i = 0; i < 101; i++) lsbListagem.Items.Add(linear.ToString());
+                foreach (var item in linear.Listar())
+                    lsbListagem.Items.Add(item);
+
+            else if (hashAtual is SondagemQuadratica<Palavra> quadratica)
+                foreach (var item in quadratica.Listar())
+                    lsbListagem.Items.Add(item);
+
             else if (hashAtual is HashDuplo<Palavra> duplo)
-                foreach (var item in duplo.Conteudo()) lsbListagem.Items.Add(item);
+                foreach (var item in duplo.Conteudo())
+                    lsbListagem.Items.Add(item);
+
             else if (hashAtual is HashSimples<Palavra> simples)
-                foreach (var item in simples.Conteudo()) lsbListagem.Items.Add(item);
-            // SondagemQuadratica também pode ser adaptada (precisa retornar uma lista).
+                foreach (var item in simples.Conteudo())
+                    lsbListagem.Items.Add(item);
         }
+
 
         private void txtPalavra_TextChanged(object sender, EventArgs e)
         {

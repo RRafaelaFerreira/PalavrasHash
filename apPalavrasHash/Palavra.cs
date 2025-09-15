@@ -33,28 +33,33 @@ public class Palavra : IRegistro<Palavra>
         return palavra?.ToLower().GetHashCode() ?? 0;
     }
 
-    public void LerRegistro(StreamReader arquivo)
-    {
+    public void LerRegistro(StreamReader arquivo){
         var linha = arquivo.ReadLine();
         if (linha == null) return;
 
-        var partes = linha.Split(';');
-        if (partes.Length >= 2)
-        {
-            palavra = partes[0].Trim();
-            dica = partes[1].Trim();
+        if (linha.Length <= 30){
+            palavra = linha.Trim();
+            dica = "";
+        }
+        else{
+            palavra = linha.Substring(0, 30).Trim();
+            dica = linha.Substring(30).Trim();
+        }
+    }
+
+    public void LerDeLinha(string linha){
+        if (linha.Length <= 30){
+            palavra = linha.Trim();
+            dica = "";
+        }
+        else{
+            palavra = linha.Substring(0, 30).Trim();
+            dica = linha.Substring(30).Trim();
         }
     }
 
     public void EscreverRegistro(StreamWriter arquivo){
         arquivo.WriteLine($"{palavra} ; {dica}");
-    }
-
-    public void LerDeLinha(string linha)
-    {
-        var partes = linha.Split(';');
-        palavra = (partes.Length > 0 ? partes[0] : "").Trim();
-        dica = (partes.Length > 1 ? partes[1] : "").Trim();
     }
 
     public String Arquivar(){

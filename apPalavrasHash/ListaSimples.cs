@@ -83,15 +83,16 @@ public class ListaSimples<Dado>
             primeiro = um;
         }
     }
-    public void Listar(ListBox lsb)
+    public List<Dado> Listar()
     {
-        lsb.Items.Clear();
-        atual = primeiro;    
-        while (atual != null) 
+        var lista = new List<Dado>();
+        var atual = primeiro;
+        while (atual != null)
         {
-            lsb.Items.Add(atual.Info);  
-            atual = atual.Prox;         
+            lista.Add(atual.Info);
+            atual = atual.Prox;
         }
+        return lista;
     }
 
     public ListaSimples()
@@ -236,6 +237,29 @@ public class ListaSimples<Dado>
         if (anterior == ultimo)  
             ultimo = novo;        
         quantosNos++;            // 	}	
+    }
+
+    public bool Remover(Dado dado){
+        if (!Existe(dado))
+            return false;
+
+        if (atual == primeiro){
+            
+            primeiro = primeiro.Prox;
+            if (primeiro == null) 
+                ultimo = null;
+        }
+        else{
+            
+            anterior.Prox = atual.Prox;
+
+            if (atual == ultimo) 
+                ultimo = anterior;
+        }
+
+        quantosNos--;
+        atual = null;
+        return true;
     }
 
 

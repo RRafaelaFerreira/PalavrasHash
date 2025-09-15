@@ -1,0 +1,4 @@
+    5 : Iphone - Celular que não dura a bateria
+   67 : JS - Abreviação de Javascript
+   76 : intel - marca de processadores famosa
+   92 : Potavel - Que todo mundo pode beber

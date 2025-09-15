@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 public class BucketHash<T> where T : IRegistro<T>, new()
 {
     private const int size = 37;
-    ArrayList[] dados;
+    ListaSimples<T>[] dados;
 
     public BucketHash() { 
-        dados = new ArrayList[size];
+        dados = new ListaSimples<T>[size];
         for(int i = 0; i < size; i++)
         {
-            dados[i] = new ArrayList(4);
+            dados[i] = new ListaSimples<T>();
         } 
     }
 
@@ -33,8 +33,9 @@ public class BucketHash<T> where T : IRegistro<T>, new()
 
     public bool Incluir(T novoDado) {
         int valorDeHash = Hash(novoDado.Chave);
-        if (!dados[valorDeHash].Contains(novoDado)) {
-            dados[valorDeHash].Add(novoDado);
+        
+        if (!dados[valorDeHash].Existe(novoDado)) {
+            dados[valorDeHash].InserirAposFim(novoDado);
             return true;
         }
         return false;
@@ -44,28 +45,35 @@ public class BucketHash<T> where T : IRegistro<T>, new()
         int onde = 0;
         if(!Existe(dado, out onde))
             return false;
-        dados[onde].Remove(dado);
+        dados[onde].Remover(dado);
         return true;
     }
 
     public bool Existe(T dado, out int onde) {
         onde = Hash(dado.Chave);
-        return dados[onde].Contains(dado);
+        return dados[onde].Existe(dado);
     }
 
     public List<string> Conteudo()
     {
         List<string> saida = new List<string>();
+
         for (int i = 0; i < dados.Length; i++)
-            if (dados[i].Count > 0) {
+        {
+            var elementos = dados[i].Listar();
+
+            if (elementos.Count > 0)
+            {
                 string linha = $"{i,5} : ";
-                foreach (T dado in dados[i]) {
-                    linha += "|" + dado;
-                }
+                foreach (var dado in elementos)
+                    linha += "|" + dado.ToString();
+
                 saida.Add(linha);
             }
-        return saida;
+        }
 
+        return saida;
     }
+
 }
 
