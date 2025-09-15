@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using static System.Console;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,10 @@ using System.Windows.Forms;
 
 namespace apPalavrasHash
 {
-    internal static class Program
+    public static class Program
     {
-        [STAThread] 
+        [STAThread]
+
 
         static void Main(string[] args)
         {
@@ -26,9 +28,9 @@ namespace apPalavrasHash
             ForegroundColor = ConsoleColor.Black;
 
 
-            //Clear();
+            //TESTANDO OS HASH E SONDAGENS
 
-            WriteLine("TESTANDO BUCKET HASH");
+            /*WriteLine("TESTANDO BUCKET HASH");
             WriteLine("Inserindo chaves");
             for (int i = 0; i < palavrasTeste.Length; i++) {
                 tabelaBucket.Incluir(palavrasTeste[i]);
@@ -110,27 +112,29 @@ namespace apPalavrasHash
             
             Exibir(tabelaLinear.Listar());
             EsperarEnter();
+        }*/
+
+
+
+            /*static Palavra[] palavrasTeste = new Palavra[]
+            { 
+                new Palavra("Thiago","Gosta muito de programar"),
+                new Palavra("Rafaela","miau miau"),
+                new Palavra("Chocolate","Feito da fruta do cacaueiro"),
+                new Palavra("Peixe","Mar"),
+                new Palavra("Tartaruga marinha","Cágado, só que do mar"),
+            };
+            static void EsperarEnter() {
+                Write("Pressione [Enter]");
+                ReadLine();
+            }
+
+            static void Exibir(List<String> lista) {
+                foreach (string item in lista)
+                    WriteLine(item);
+            }*/
+
         }
-
-
-        static Palavra[] palavrasTeste = new Palavra[]
-        { 
-            new Palavra("Thiago","Gosta muito de programar"),
-            new Palavra("Rafaela","miau miau"),
-            new Palavra("Chocolate","Feito da fruta do cacaueiro"),
-            new Palavra("Peixe","Mar"),
-            new Palavra("Tartaruga marinha","Cágado, só que do mar"),
-        };
-        static void EsperarEnter() {
-            Write("Pressione [Enter]");
-            ReadLine();
-        }
-
-        static void Exibir(List<String> lista) {
-            foreach (string item in lista)
-                WriteLine(item);
-        }
-
     }
 }
             
