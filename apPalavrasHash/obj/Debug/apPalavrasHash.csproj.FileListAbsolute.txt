@@ -1,0 +1,10 @@
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\bin\Debug\apPalavrasHash.exe.config
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\bin\Debug\apPalavrasHash.exe
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\bin\Debug\apPalavrasHash.pdb
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\obj\Debug\apPalavrasHash.csproj.AssemblyReference.cache
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\obj\Debug\apPalavrasHash.Form1.resources
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\obj\Debug\apPalavrasHash.Properties.Resources.resources
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\obj\Debug\apPalavrasHash.csproj.GenerateResource.cache
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\obj\Debug\apPalavrasHash.csproj.CoreCompileInputs.cache
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\obj\Debug\apPalavrasHash.exe
+C:\Users\PICHAU\Documents\lume-main\PalavrasHash\apPalavrasHash\obj\Debug\apPalavrasHash.pdb

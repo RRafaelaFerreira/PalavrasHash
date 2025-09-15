@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class HashSimples<T> where T : IRegistro<T>, new()
 {
-    const int tamanhoPadrao = 1007;
+    int tamanhoPadrao = 1007;
     T[] tabelaDeHash;
     int qntsElementos;
 
@@ -45,7 +45,7 @@ public class HashSimples<T> where T : IRegistro<T>, new()
     }
 
     public string Incluir(T novoDado) {
-        saida = " ";
+        string saida = " ";
         double tabelaCheia = (double)qntsElementos / tamanhoPadrao;
         if (tabelaCheia > 0.7)
             Rehash();
