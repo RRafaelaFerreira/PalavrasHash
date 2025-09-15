@@ -1,4 +1,4 @@
-﻿using System.Runtime.ConstrainedExecution;
+using System.Runtime.ConstrainedExecution;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,11 +80,13 @@ public class SondagemQuadratica<T> where T : IRegistro<T>, new()
     }
 
     //listar
-    public void Listar(){
+    public List<string> Listar(){
+        var saida = new List<string>();
         for (int i = 0; i < tamanho; i++){
-            if (tabelaDeHash[i] != null && tabelaDeHash[i].Equals(default(T)))
-                Console.WriteLine($"{i}: |{tabelaDeHash[i]}");
+            if (tabelaDeHash[i] != null)
+                saida.Add($"{i}: |{tabelaDeHash[i]}");
         }
+        return saida;
     }
 
 }
